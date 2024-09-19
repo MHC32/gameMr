@@ -53,9 +53,9 @@
     ],
     "mostPopularGames": [
       {
-        "id": 2,
+        "id": 1,
         "title": "GTA V",
-        "image": "https://example.com/gtav.jpg",
+        "image": "../assets./images/cover/GTA.png",
         "price": 29.99,
         "isLiked": false,
         "inWishlist": true
@@ -63,23 +63,23 @@
       {
         "id": 2,
         "title": "Hogwarts Legacy",
-        "image": "https://example.com/gtav.jpg",
+        "image": "../assets./images/cover/hogwarts-legacy.png",
         "price": 59.99,
         "isLiked": false,
         "inWishlist": true
       },
       {
-        "id": 2,
+        "id": 3,
         "title": "Red Dead Redemption II",
-        "image": "https://example.com/gtav.jpg",
+        "image": "../assets./images/cover/red-dead-redemption.png",
         "price": 59.99,
         "isLiked": false,
         "inWishlist": true
       },
       {
-        "id": 2,
+        "id": 4,
         "title": "Fifa 23 ",
-        "image": "https://example.com/gtav.jpg",
+        "image": "../assets./images/cover/fifa23.png",
         "price": 69.99,
         "isLiked": false,
         "inWishlist": true
@@ -90,7 +90,7 @@
         "id": 1,
         "name": "Xbox Wirelles Controller",
         "price": "389", 
-        "image": "../assets./images/cover/fifa23.png",
+        "image": "../assets./images/cover/xbox-controller.png",
         "isLiked": false,
         "inWishlist": false
       },
@@ -98,7 +98,7 @@
         "id": 2,
         "name": "bo Controller & Charging Stand",
         "price": "389",
-        "image": "../assets./images/cover/fifa23.png", 
+        "image": "../assets./images/cover/charging-stand", 
         "isLiked": false,
         "inWishlist": false
       },
@@ -140,39 +140,39 @@
         "id": 1,
         "name": "Xbox Series X 1Tb",
         "price": "309", 
-        "image": "../assets./images/cover/fifa23.png",
+        "image": "../assets./images/cover/Xbox Series X.png",
         "isLiked": false,
         "inWishlist": false
       },
       {
-        "id": 6,
+        "id": 2,
         "name": "Xbox One S 1Tb",
         "price": "250", 
-        "image": "../assets./images/cover/fifa23.png",
+        "image": "../assets./images/cover/Xbox one s.png",
         "isLiked": false,
         "inWishlist": false
       },
       {
-        "id": 6,
+        "id": 3,
         "name": "Xbox One X 1Tb",
         "price": "250", 
-        "image": "../assets./images/cover/fifa23.png",
+        "image": "../assets./images/cover/Xbox one X.png",
         "isLiked": false,
         "inWishlist": false
       },
       {
-        "id": 6,
+        "id": 4,
         "name": "Xbox Series X Forza ",
         "price": "450", 
-        "image": "../assets./images/cover/fifa23.png",
+        "image": "../assets./images/cover/Xbox Series X Forza.png",
         "isLiked": false,
         "inWishlist": false
       },
       {
-        "id": 6,
+        "id": 5,
         "name": "Xbo X Forza Horizon Bundle ",
         "price": "500", 
-        "image": "../assets./images/cover/fifa23.png",
+        "image": "../assets./images/cover/Xbox bundle forza.png",
         "isLiked": false,
         "inWishlist": false
       },
@@ -180,7 +180,7 @@
         "id": 6,
         "name": "Xbox Series X Forza ",
         "price": "122", 
-        "image": "../assets./images/cover/fifa23.png",
+        "image": "../assets./images/cover/Xbox forza.png",
         "isLiked": false,
         "inWishlist": false
       }
@@ -190,64 +190,64 @@
         "id": 1,
         "name": "New Reality With Oculus",
         "description": "Experience next-level gaming in VR with oculus interact naturaly with the virtual world ",
-        "image": "../assets./images/cover/archile-legend-untold.png"
+        "image": "../assets./images/banner/New Reality.png"
       },
       {
-        "id": 1,
+        "id": 2,
         "name": "Nexigo Controller Charging Station",
         "description": "No need to waste time . Charge in 30 minutes. Your PSVR2 Experience just got better ",
-        "image": "../assets./images/cover/archile-legend-untold.png"
+        "image": "../assets./images/banner/Nexigo.png"
       },
       {
-        "id": 1,
+        "id": 3,
         "name": "Xboxx Elite Wireless Controller Series 2",
         "description": "Experience the Xbox Elite Wireless Controller Series 2 featuring wrap-around rubberized grip, and shorter hair trigger locks",
-        "image": "../assets./images/cover/archile-legend-untold.png"
+        "image": "../assets./images/banner/Xbox Elite.png.png"
       },
       {
-        "id": 1,
+        "id": 4,
         "name": "SteelSeries Artics 9X Wireless Gaming Headset",
         "description": "Connect directly to your Xbox Series XS or Xbo One just like a wireless controller, no cable or dongle required ",
-        "image": "../assets./images/cover/archile-legend-untold.png"
+        "image": "../assets./images/banner/SteelSeries.png"
       },
       {
-        "id": 1,
+        "id": 5,
         "name": "Xbox One",
         "description": "Rge fatest, most powerful Xbox ever. Explore rich new worlds with 12 teraflops of raw graphic processing power",
-        "image": "../assets./images/cover/archile-legend-untold.png"
+        "image": "../assets./images/banner/Xbo One.png"
       }
       
     ],
     "Banner": [
       {
         "id": 1,
-        "name": "../assets./images/cover/archile-legend-untold.png",
-        "description": "A deadly virus is spreading across Los Angeles, tunning inhabitants into zombies. Bitten, infected, uncover the truth  ",
-        "image": "../assets./images/cover/archile-legend-untold.png",
+        "name": "../assets./images/banner/Crime-boss-title.png",
+        "description": "Take on the role of travis Baker - a man with sights set on becoming the new king of Rockay City, one crime at time   ",
+        "image": "../assets./images/banner/../assets./images/banner/Crime-boss-title.png",
         "priceBeforeDiscount": 23.99,
         "priceAfterDiscount": 21
       },
       {
-        "id": 1,
-        "name": "../assets./images/cover/archile-legend-untold.png",
+        "id": 2,
+        "name": "../assets./images/banner/Rainbow-title.png",
         "description": "A deadly virus is spreading across Los Angeles, tunning inhabitants into zombies. Bitten, infected, uncover the truth  ",
-        "image": "../assets./images/cover/archile-legend-untold.png",
+        "image": "../assets./images/banner/Rainbow-banner.png",
         "priceBeforeDiscount": 23.99,
         "priceAfterDiscount": 21
       },
       {
-        "id": 1,
-        "name": "../assets./images/cover/archile-legend-untold.png",
-        "description": "A deadly virus is spreading across Los Angeles, tunning inhabitants into zombies. Bitten, infected, uncover the truth  ",
-        "image": "../assets./images/cover/archile-legend-untold.png",
+        "id": 3,
+        "name": "../assets./images/banner/Dead-island-title.png",
+        "description": "A deadly virus is spreading across Los Angeles, tunning inhabitants into zombies. Survive, evolve and become the ultimate Zombie Slayer  ",
+        "image": "../assets./images/banner/Dead-island-banner.png",
         "priceBeforeDiscount": 23.99,
         "priceAfterDiscount": 21
       },
       {
-        "id": 1,
-        "name": "../assets./images/cover/archile-legend-untold.png",
-        "description": "A deadly virus is spreading across Los Angeles, tunning inhabitants into zombies. Bitten, infected, uncover the truth  ",
-        "image": "../assets./images/cover/archile-legend-untold.png",
+        "id": 4,
+        "name": "../assets./images/banner/Tchia-title.png",
+        "description": "A tropical Open-World Adventure Climb, gilde, swim, and sail your boat around a beautiful archilepo in this physics-driven sandbox ",
+        "image": "../assets./images/banner/Tchia-banner.png",
         "priceBeforeDiscount": 23.99,
         "priceAfterDiscount": 21
       }
