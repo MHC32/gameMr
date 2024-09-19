@@ -1,0 +1,256 @@
+{
+    "gameOnSale": [
+      {
+        "id": 1,
+        "title": "Red Dead Redemption II",
+        "image": "../assets./images/cover/red-dead-redemption.png",
+        "priceBeforeDiscount": 59.99,
+        "priceAfterDiscount": 50.99,
+        "discount": "15%",
+        "isLiked": false,
+        "inWishlist": false
+      },
+      {
+        "id": 2,
+        "title": "Rainbow Six Extraction ",
+        "image": "../assets./images/cover/raibow-six.png",
+        "priceBeforeDiscount": 70.99,
+        "priceAfterDiscount": 63.99,
+        "discount": "10%",
+        "isLiked": true,
+        "inWishlist": false
+      },
+      {
+        "id": 3,
+        "title": "Achiles Legends Untold ",
+        "image": "../assets./images/cover/archile-legend-untold.png",
+        "priceBeforeDiscount": 70.99,
+        "priceAfterDiscount": 63.99,
+        "discount": "10%",
+        "isLiked": true,
+        "inWishlist": false
+      },
+      {
+        "id": 4,
+        "title": "Cyberpunk 2077 ",
+        "image": "https://example.com/witcher3.jpg",
+        "priceBeforeDiscount": 59.99,
+        "priceAfterDiscount": 47.99,
+        "discount": "20%",
+        "isLiked": true,
+        "inWishlist": false
+      },
+      {
+        "id": 5,
+        "title": "Fifa 23 ",
+        "image": "../assets./images/cover/fifa23.png",
+        "priceBeforeDiscount": 59.99,
+        "priceAfterDiscount": 47.99,
+        "discount": "20%",
+        "isLiked": true,
+        "inWishlist": false
+      }
+    ],
+    "mostPopularGames": [
+      {
+        "id": 2,
+        "title": "GTA V",
+        "image": "https://example.com/gtav.jpg",
+        "price": 29.99,
+        "isLiked": false,
+        "inWishlist": true
+      },
+      {
+        "id": 2,
+        "title": "Hogwarts Legacy",
+        "image": "https://example.com/gtav.jpg",
+        "price": 59.99,
+        "isLiked": false,
+        "inWishlist": true
+      },
+      {
+        "id": 2,
+        "title": "Red Dead Redemption II",
+        "image": "https://example.com/gtav.jpg",
+        "price": 59.99,
+        "isLiked": false,
+        "inWishlist": true
+      },
+      {
+        "id": 2,
+        "title": "Fifa 23 ",
+        "image": "https://example.com/gtav.jpg",
+        "price": 69.99,
+        "isLiked": false,
+        "inWishlist": true
+      }
+    ],
+    "Accessories": [
+      {
+        "id": 1,
+        "name": "Xbox Wirelles Controller",
+        "price": "389", 
+        "image": "../assets./images/cover/fifa23.png",
+        "isLiked": false,
+        "inWishlist": false
+      },
+      {
+        "id": 2,
+        "name": "bo Controller & Charging Stand",
+        "price": "389",
+        "image": "../assets./images/cover/fifa23.png", 
+        "isLiked": false,
+        "inWishlist": false
+      },
+      {
+        "id": 3,
+        "name": "Viron VR Headset",
+        "price": "122", 
+        "image": "../assets./images/cover/fifa23.png",
+        "isLiked": false,
+        "inWishlist": false
+      },
+      {
+        "id": 4,
+        "name": "Seagate 4TB Game Driver",
+        "price": "122", 
+        "image": "../assets./images/cover/fifa23.png",
+        "isLiked": false,
+        "inWishlist": false
+      },
+      {
+        "id": 5,
+        "name": "Dual Chargin Station For Xbox",
+        "price": "122", 
+        "image": "../assets./images/cover/fifa23.png",
+        "isLiked": false,
+        "inWishlist": false
+      },
+      {
+        "id": 6,
+        "name": "Enchanced Wired Xbox Controller",
+        "price": "122", 
+        "image": "../assets./images/cover/fifa23.png",
+        "isLiked": false,
+        "inWishlist": false
+      }
+    ],
+    "Console": [
+      {
+        "id": 1,
+        "name": "Xbox Series X 1Tb",
+        "price": "309", 
+        "image": "../assets./images/cover/fifa23.png",
+        "isLiked": false,
+        "inWishlist": false
+      },
+      {
+        "id": 6,
+        "name": "Xbox One S 1Tb",
+        "price": "250", 
+        "image": "../assets./images/cover/fifa23.png",
+        "isLiked": false,
+        "inWishlist": false
+      },
+      {
+        "id": 6,
+        "name": "Xbox One X 1Tb",
+        "price": "250", 
+        "image": "../assets./images/cover/fifa23.png",
+        "isLiked": false,
+        "inWishlist": false
+      },
+      {
+        "id": 6,
+        "name": "Xbox Series X Forza ",
+        "price": "450", 
+        "image": "../assets./images/cover/fifa23.png",
+        "isLiked": false,
+        "inWishlist": false
+      },
+      {
+        "id": 6,
+        "name": "Xbo X Forza Horizon Bundle ",
+        "price": "500", 
+        "image": "../assets./images/cover/fifa23.png",
+        "isLiked": false,
+        "inWishlist": false
+      },
+      {
+        "id": 6,
+        "name": "Xbox Series X Forza ",
+        "price": "122", 
+        "image": "../assets./images/cover/fifa23.png",
+        "isLiked": false,
+        "inWishlist": false
+      }
+    ],
+    "AccessoriesBanner": [
+      {
+        "id": 1,
+        "name": "New Reality With Oculus",
+        "description": "Experience next-level gaming in VR with oculus interact naturaly with the virtual world ",
+        "image": "../assets./images/cover/archile-legend-untold.png"
+      },
+      {
+        "id": 1,
+        "name": "Nexigo Controller Charging Station",
+        "description": "No need to waste time . Charge in 30 minutes. Your PSVR2 Experience just got better ",
+        "image": "../assets./images/cover/archile-legend-untold.png"
+      },
+      {
+        "id": 1,
+        "name": "Xboxx Elite Wireless Controller Series 2",
+        "description": "Experience the Xbox Elite Wireless Controller Series 2 featuring wrap-around rubberized grip, and shorter hair trigger locks",
+        "image": "../assets./images/cover/archile-legend-untold.png"
+      },
+      {
+        "id": 1,
+        "name": "SteelSeries Artics 9X Wireless Gaming Headset",
+        "description": "Connect directly to your Xbox Series XS or Xbo One just like a wireless controller, no cable or dongle required ",
+        "image": "../assets./images/cover/archile-legend-untold.png"
+      },
+      {
+        "id": 1,
+        "name": "Xbox One",
+        "description": "Rge fatest, most powerful Xbox ever. Explore rich new worlds with 12 teraflops of raw graphic processing power",
+        "image": "../assets./images/cover/archile-legend-untold.png"
+      }
+      
+    ],
+    "Banner": [
+      {
+        "id": 1,
+        "name": "../assets./images/cover/archile-legend-untold.png",
+        "description": "A deadly virus is spreading across Los Angeles, tunning inhabitants into zombies. Bitten, infected, uncover the truth  ",
+        "image": "../assets./images/cover/archile-legend-untold.png",
+        "priceBeforeDiscount": 23.99,
+        "priceAfterDiscount": 21
+      },
+      {
+        "id": 1,
+        "name": "../assets./images/cover/archile-legend-untold.png",
+        "description": "A deadly virus is spreading across Los Angeles, tunning inhabitants into zombies. Bitten, infected, uncover the truth  ",
+        "image": "../assets./images/cover/archile-legend-untold.png",
+        "priceBeforeDiscount": 23.99,
+        "priceAfterDiscount": 21
+      },
+      {
+        "id": 1,
+        "name": "../assets./images/cover/archile-legend-untold.png",
+        "description": "A deadly virus is spreading across Los Angeles, tunning inhabitants into zombies. Bitten, infected, uncover the truth  ",
+        "image": "../assets./images/cover/archile-legend-untold.png",
+        "priceBeforeDiscount": 23.99,
+        "priceAfterDiscount": 21
+      },
+      {
+        "id": 1,
+        "name": "../assets./images/cover/archile-legend-untold.png",
+        "description": "A deadly virus is spreading across Los Angeles, tunning inhabitants into zombies. Bitten, infected, uncover the truth  ",
+        "image": "../assets./images/cover/archile-legend-untold.png",
+        "priceBeforeDiscount": 23.99,
+        "priceAfterDiscount": 21
+      }
+    ]
+  }
+  

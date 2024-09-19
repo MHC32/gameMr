@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "gamr",
+    "slug": "gamr",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.gamr"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.anonymous.gamr"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "fonts": {
+      "RopaSansItalic": "./assets/fonts/RopaSans-Italic.ttf",
+      "RopaSansRegular": "./assets/fonts/RopaSans-Regular.ttf",
+      "UrbanistItalic": "./assets/fonts/Urbanist-Italic-VariableFont_wght.ttf",
+      "UrbanistVariable": "./assets/fonts/Urbanist-VariableFont_wght.ttf"
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}
