@@ -1,30 +1,16 @@
 import {useEffect} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
-import useCustomFonts from './utils/fonts';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
+import HomeStack from './src/navigation/HomeStack';
 
 export default function App() {
-  const { loaded, error } = useCustomFonts();
-
-  if (!loaded && !error) {
-    return null; 
-  }
-
   return (
-    <View style={styles.container}>
-      <Text style={{ fontFamily: 'UrbanistVariable' }}>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+   <NavigationContainer>
+      <HomeStack/>
+      <StatusBar style="light" backgroundColor='black'  />
+   </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+

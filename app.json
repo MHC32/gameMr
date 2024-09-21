@@ -4,7 +4,7 @@
     "slug": "gamr",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/rounded_logo_output.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/rounded_logo_output copy.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.anonymous.gamr"
