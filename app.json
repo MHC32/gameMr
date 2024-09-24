@@ -28,12 +28,6 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "fonts": {
-      "RopaSansItalic": "./assets/fonts/RopaSans-Italic.ttf",
-      "RopaSansRegular": "./assets/fonts/RopaSans-Regular.ttf",
-      "UrbanistItalic": "./assets/fonts/Urbanist-Italic-VariableFont_wght.ttf",
-      "UrbanistVariable": "./assets/fonts/Urbanist-VariableFont_wght.ttf"
-    },
     "plugins": [
       "expo-font"
     ]
