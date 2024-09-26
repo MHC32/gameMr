@@ -75,7 +75,7 @@ const SplashScreen = ({navigation}) => {
           <Animated.View style={[styles.circle, animatedCircle]} />
         </Animated.View>
 
-        <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('Onboarding1')}>
+        <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('OnBoardingStack')}>
           <Image source={require("../../assets/icons/Icon.png")}style={styles.icon} />
         </TouchableOpacity>
 
