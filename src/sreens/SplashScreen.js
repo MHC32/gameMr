@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Image } from 'react-native';
 import React, { useEffect } from 'react';
 import Animated, {
   useSharedValue,
@@ -11,7 +11,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import { scale } from 'react-native-size-matters';
 import useCustomFonts from '../../utils/fonts';
 
-const SplashScreen = () => {
+const SplashScreen = ({navigation}) => {
   const width = Dimensions.get('window').width;
   const { loaded } = useCustomFonts();
   const translateY = useSharedValue(100);
@@ -69,10 +69,18 @@ const SplashScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Animated.View style={[styles.containerLogo, animatedStyle]}>
-        <Text style={styles.logo}>gamr</Text>
-        <Animated.View style={[styles.circle, animatedCircle]} />
-      </Animated.View>
+      <View style={styles.containerEnd}>
+        <Animated.View style={[styles.containerLogo, animatedStyle]}>
+          <Text style={styles.logo}>gamr</Text>
+          <Animated.View style={[styles.circle, animatedCircle]} />
+        </Animated.View>
+
+        <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('Onboarding1')}>
+          <Image source={require("../../assets/icons/Icon.png")}style={styles.icon} />
+        </TouchableOpacity>
+
+        <Animated.Image source={require('../../assets/unsplash_49hqFrGtL9Y.png')} style={[animatedStyle]} />
+      </View>
     </View>
   );
 };
@@ -81,14 +89,19 @@ const styles = StyleSheet.create({
   container: { 
     flex: 1,
     backgroundColor: "black",
-    justifyContent: "center",
     alignItems: "center",
+    justifyContent: 'flex-end'
+  },
+  containerEnd: {
+    width: wp('100%'),
+    height: hp('79%'),
   },
   containerLogo: {
     width: wp('100%'),
     height: hp('17%'),
     alignItems: 'center',
     position: "relative",
+    marginBottom: wp('10%')
   },
   logo: {
     color: "white",
@@ -107,6 +120,28 @@ const styles = StyleSheet.create({
     top: wp('12%'),
     zIndex: 1.5,
   },
+  button: {
+    width: 89,
+    height: 89,
+    backgroundColor: "#08AD2C",
+    borderRadius: 49,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center'
+  },
+  icon: {
+    width: '30%',
+    height: '20%'
+  },
+  containerImage: {
+    width: wp('100%'),
+    height: hp('100%'),
+    alignSelf: 'flex-end',
+    backgroundColor: 'red'
+  },
+  image: {
+    
+  }
 });
 
 export default SplashScreen;
