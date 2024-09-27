@@ -1,6 +1,7 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
-import AppIntroSlider from 'react-native-app-intro-slider';
+import React, { useState, useRef } from 'react';
+import { View, Text, Image, FlatList, StyleSheet } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { scale } from 'react-native-size-matters';
 
 const slides = [
   {
@@ -8,68 +9,123 @@ const slides = [
     title: 'Shop Original XBox Accessories',
     text1: 'Authorized XBox Dealer.',
     text2: 'Accessories Are Backed By',
-    text3: 'Waranty',
+    text3: 'Warranty',
     image: require('../../assets/unsplash_UCFDB6O48d0.png'),
-    backgroundColor: 'black',
   },
   {
     key: '2',
-    title: 'Wilde Collection of The Best Games',
-    text: 'Naviguez facilement entre les différentes sections.',
+    title: 'Wild Collection of The Best Games',
+    text1: 'Explore and enjoy!',
     image: require('../../assets/unsplash_UCFDB6O48d0.png'),
-    backgroundColor: 'black',
   },
 ];
 
-export default function Onboarding() {
-  const _renderItem = ({ item }) => {
-    return (
-      <View style={[styles.slide, { backgroundColor: item.backgroundColor }]}>
-        <Text style={styles.title}>{item.title}</Text>
-        <Image source={item.image} style={styles.image} />
-        <Text style={styles.text}>{item.text}</Text>
-      </View>
-    );
+export default function CustomSlider() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const flatListRef = useRef(null);
+
+  const handleScroll = (event) => {
+    const contentOffsetX = event.nativeEvent.contentOffset.x;
+    const index = Math.round(contentOffsetX / wp('100%'));
+    setActiveIndex(index);
   };
 
-  const _onDone = () => {
-    // Action à effectuer lorsque l'utilisateur termine le slider
-    console.log('Slider terminé');
-  };
+  const renderItem = ({ item }) => (
+    <View style={styles.slide}>
+      <Text style={styles.title}>{item.title}</Text>
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>{item.text1}</Text>
+        <Text style={styles.text}>{item.text2}</Text>
+        <Text style={styles.text}>{item.text3}</Text>
+      </View>
+      <Image source={item.image} style={styles.image} />
+    </View>
+  );
+
+  const renderCustomDots = () => (
+    <View style={styles.dotContainer}>
+      {slides.map((_, index) => (
+        <View
+          key={index}
+          style={[
+            styles.dot,
+            activeIndex === index ? styles.activeDot : styles.inactiveDot,
+          ]}
+        />
+      ))}
+    </View>
+  );
 
   return (
-    <AppIntroSlider 
-      renderItem={_renderItem} 
-      data={slides} 
-      onDone={_onDone} 
-      showSkipButton={true} // Affiche un bouton pour ignorer
-      onSkip={_onDone} // Action si l'utilisateur saute l'intro
-    />
+    <View style={styles.container}>
+      <FlatList
+        ref={flatListRef}
+        data={slides}
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.key}
+        onScroll={handleScroll}
+      />
+      {renderCustomDots()}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  slide: {
+  container: {
     flex: 1,
+    backgroundColor: 'black',
+  },
+  slide: {
+    width: wp('100%'),
+    height: hp('95%'),
     justifyContent: 'center',
     alignItems: 'center',
   },
   title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
-    marginBottom: 20,
+    fontSize: scale(28),
+    fontWeight: '500',
+    color: '#FFFFFF',
+    textAlign: 'center',
+    marginTop: hp('15%')
   },
-  image: {
-    width: 300,
-    height: 300,
-    resizeMode: 'contain',
-    marginVertical: 30,
+  textContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: hp('1%')
   },
   text: {
-    fontSize: 16,
-    color: '#fff',
+    color: '#B5B5B5',
+    fontSize: scale(14),
+    fontWeight: '500',
     textAlign: 'center',
-    paddingHorizontal: 20,
+  },
+  image: {
+    width: wp('80%'),
+    height: hp('38%'),
+    marginTop: hp('9%')
+  },
+  dotContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 20,
+    marginLeft: 15,
+    alignSelf: 'flex-start'
+  },
+  dot: {
+    width: 40,
+    height: 2,
+    marginHorizontal: 3,
+    
+  },
+  activeDot: {
+    height: 4,
+    backgroundColor: "#08AD2C",
+  },
+  inactiveDot: {
+    backgroundColor: 'gray',
   },
 });
