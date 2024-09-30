@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, Image, FlatList, Animated, StyleSheet } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import BackgroundAnimation from '../components/BackgroundAnimation';
 import { scale } from 'react-native-size-matters';
 
 const slides = [
@@ -24,8 +25,6 @@ const slides = [
 export default function CustomSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
   const flatListRef = useRef(null);
-
-  // Valeur animée pour suivre la position de défilement
   const scrollX = useRef(new Animated.Value(0)).current;
 
   const handleScroll = Animated.event(
@@ -34,19 +33,16 @@ export default function CustomSlider() {
   );
 
   const renderItemSlide1 = ({ item, index }) => {
-    // Interpolation de la position du texte en fonction de l'index du slide
     const inputRange = [(index - 1) * wp('100%'), index * wp('100%'), (index + 1) * wp('100%')];
     
-    // L'inversion de la translation : on déplace le texte dans le sens opposé au défilement
     const translateX = scrollX.interpolate({
       inputRange,
-      outputRange: [-wp('100%'), 0, wp('100%')],  // Déplacement dans le sens opposé
+      outputRange: [-wp('100%'), 0, wp('100%')],
     });
 
     return (
       <View style={styles.slide}>
         <Text style={styles.title}>{item.title}</Text>
-        {/* Utilisation de l'animation pour le conteneur de texte */}
         <Animated.View style={[styles.textContainer, { transform: [{ translateX }] }]}>
           <Text style={styles.text}>{item.text1}</Text>
           <Text style={styles.text}>{item.text2}</Text>
@@ -57,18 +53,14 @@ export default function CustomSlider() {
     );
   };
 
-  const renderItemSlide2 = ({ item }) => (
+  const renderItemSlide2 = () => (
     <View style={styles.slideSpecial}>
-      <Text style={styles.titleSpecial}>{item.title}</Text>
-      <View style={styles.textContainer}>
-        <Text style={styles.textSpecial}>{item.text1}</Text>
-      </View>
-      <Image source={item.image} style={styles.imageSpecial} />
+      <BackgroundAnimation />
     </View>
   );
 
   const renderItem = ({ item, index }) => {
-    return item.hasSpecialAnimation ? renderItemSlide2({ item }) : renderItemSlide1({ item, index });
+    return item.hasSpecialAnimation ? renderItemSlide2() : renderItemSlide1({ item, index });
   };
 
   const renderCustomDots = () => (
@@ -85,8 +77,11 @@ export default function CustomSlider() {
     </View>
   );
 
+  // Définir la couleur d'arrière-plan en fonction de l'index actif
+  const backgroundColor = activeIndex === 1 ? 'rgba(0, 0, 0, 0)' : 'black';
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor }]}>
       <Animated.FlatList
         ref={flatListRef}
         data={slides}
@@ -110,7 +105,6 @@ export default function CustomSlider() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black',
   },
   slide: {
     width: wp('100%'),
@@ -160,15 +154,11 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     textAlign: 'center',
   },
-  imageSpecial: {
-    width: wp('85%'),
-    height: hp('40%'),
-    marginTop: hp('10%'),
-  },
   dotContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    alignSelf: 'flex-start',
     marginBottom: 20,
   },
   dot: {
