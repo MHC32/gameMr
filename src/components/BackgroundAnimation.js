@@ -5,7 +5,15 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 const BackgroundAnimation = () => {
   return (
     <View style={styles.container}>
-      <Text>BackgroundAnimation</Text>
+      <View style={styles.column}>
+
+      </View>
+      <View style={styles.column}>
+
+      </View>
+      <View style={styles.column}>
+
+      </View>
     </View>
   )
 }
@@ -15,8 +23,14 @@ export default BackgroundAnimation
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
         width: wp('100%'),
         height: hp('100%'),
-
+    },
+    column: {
+        width: wp('30%'),
+        height: hp('100%'),
+        backgroundColor: 'red'
     }
 })

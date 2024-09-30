@@ -105,6 +105,7 @@ export default function CustomSlider() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    zIndex: 0,
   },
   slide: {
     width: wp('100%'),
