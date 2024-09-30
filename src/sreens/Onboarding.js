@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { View, Text, Image, FlatList, StyleSheet } from 'react-native';
+import { View, Text, Image, FlatList, Animated, StyleSheet } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { scale } from 'react-native-size-matters';
 
@@ -14,9 +14,10 @@ const slides = [
   },
   {
     key: '2',
-    title: 'Wild Collection of The Best Games',
+    title: 'Wide Collection of The Best Games',
     text1: 'Explore and enjoy!',
     image: require('../../assets/unsplash_UCFDB6O48d0.png'),
+    hasSpecialAnimation: true,  // Spécifie que ce slide a une animation spéciale
   },
 ];
 
@@ -24,23 +25,51 @@ export default function CustomSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
   const flatListRef = useRef(null);
 
-  const handleScroll = (event) => {
-    const contentOffsetX = event.nativeEvent.contentOffset.x;
-    const index = Math.round(contentOffsetX / wp('100%'));
-    setActiveIndex(index);
+  // Valeur animée pour suivre la position de défilement
+  const scrollX = useRef(new Animated.Value(0)).current;
+
+  const handleScroll = Animated.event(
+    [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+    { useNativeDriver: false }
+  );
+
+  const renderItemSlide1 = ({ item, index }) => {
+    // Interpolation de la position du texte en fonction de l'index du slide
+    const inputRange = [(index - 1) * wp('100%'), index * wp('100%'), (index + 1) * wp('100%')];
+    
+    // L'inversion de la translation : on déplace le texte dans le sens opposé au défilement
+    const translateX = scrollX.interpolate({
+      inputRange,
+      outputRange: [-wp('100%'), 0, wp('100%')],  // Déplacement dans le sens opposé
+    });
+
+    return (
+      <View style={styles.slide}>
+        <Text style={styles.title}>{item.title}</Text>
+        {/* Utilisation de l'animation pour le conteneur de texte */}
+        <Animated.View style={[styles.textContainer, { transform: [{ translateX }] }]}>
+          <Text style={styles.text}>{item.text1}</Text>
+          <Text style={styles.text}>{item.text2}</Text>
+          <Text style={styles.text}>{item.text3}</Text>
+        </Animated.View>
+        <Image source={item.image} style={styles.image} />
+      </View>
+    );
   };
 
-  const renderItem = ({ item }) => (
-    <View style={styles.slide}>
-      <Text style={styles.title}>{item.title}</Text>
+  const renderItemSlide2 = ({ item }) => (
+    <View style={styles.slideSpecial}>
+      <Text style={styles.titleSpecial}>{item.title}</Text>
       <View style={styles.textContainer}>
-        <Text style={styles.text}>{item.text1}</Text>
-        <Text style={styles.text}>{item.text2}</Text>
-        <Text style={styles.text}>{item.text3}</Text>
+        <Text style={styles.textSpecial}>{item.text1}</Text>
       </View>
-      <Image source={item.image} style={styles.image} />
+      <Image source={item.image} style={styles.imageSpecial} />
     </View>
   );
+
+  const renderItem = ({ item, index }) => {
+    return item.hasSpecialAnimation ? renderItemSlide2({ item }) : renderItemSlide1({ item, index });
+  };
 
   const renderCustomDots = () => (
     <View style={styles.dotContainer}>
@@ -58,7 +87,7 @@ export default function CustomSlider() {
 
   return (
     <View style={styles.container}>
-      <FlatList
+      <Animated.FlatList
         ref={flatListRef}
         data={slides}
         horizontal
@@ -67,6 +96,11 @@ export default function CustomSlider() {
         renderItem={renderItem}
         keyExtractor={(item) => item.key}
         onScroll={handleScroll}
+        onMomentumScrollEnd={(event) => {
+          const contentOffsetX = event.nativeEvent.contentOffset.x;
+          const index = Math.round(contentOffsetX / wp('100%'));
+          setActiveIndex(index);
+        }}
       />
       {renderCustomDots()}
     </View>
@@ -89,12 +123,12 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#FFFFFF',
     textAlign: 'center',
-    marginTop: hp('15%')
+    marginTop: hp('15%'),
   },
   textContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: hp('1%')
+    marginTop: hp('1%'),
   },
   text: {
     color: '#B5B5B5',
@@ -105,25 +139,46 @@ const styles = StyleSheet.create({
   image: {
     width: wp('80%'),
     height: hp('38%'),
-    marginTop: hp('9%')
+    marginTop: hp('9%'),
+  },
+  slideSpecial: {
+    width: wp('100%'),
+    height: hp('95%'),
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+  },
+  titleSpecial: {
+    fontSize: scale(32),
+    fontWeight: '700',
+    color: '#FFF',
+    textAlign: 'center',
+  },
+  textSpecial: {
+    color: '#FFFFFF',
+    fontSize: scale(16),
+    fontWeight: '500',
+    textAlign: 'center',
+  },
+  imageSpecial: {
+    width: wp('85%'),
+    height: hp('40%'),
+    marginTop: hp('10%'),
   },
   dotContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
-    marginLeft: 15,
-    alignSelf: 'flex-start'
   },
   dot: {
     width: 40,
     height: 2,
     marginHorizontal: 3,
-    
   },
   activeDot: {
     height: 4,
-    backgroundColor: "#08AD2C",
+    backgroundColor: '#08AD2C',
   },
   inactiveDot: {
     backgroundColor: 'gray',
