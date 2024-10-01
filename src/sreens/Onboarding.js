@@ -77,8 +77,8 @@ export default function CustomSlider() {
     </View>
   );
 
-  // Définir la couleur d'arrière-plan en fonction de l'index actif
-  const backgroundColor = activeIndex === 1 ? 'rgba(0, 0, 0, 0)' : 'black';
+  
+  const backgroundColor = activeIndex === 1 ? 'black' : 'black';
 
   return (
     <View style={[styles.container, { backgroundColor }]}>
@@ -105,7 +105,7 @@ export default function CustomSlider() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    zIndex: 0,
+    backgroundColor: "black"
   },
   slide: {
     width: wp('100%'),
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     height: hp('95%'),
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'transparent',
+
   },
   titleSpecial: {
     fontSize: scale(32),
