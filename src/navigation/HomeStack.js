@@ -6,9 +6,9 @@ const Stack = createStackNavigator();
 
 const HomeStack = () => {
     return (
-        <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="SplashScreen" component={SplashScreen}/>
-            <Stack.Screen name='Onboarding' component={Onboarding}/>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="SplashScreen" component={SplashScreen} />
+            <Stack.Screen name='Onboarding' component={Onboarding} />
         </Stack.Navigator>
     )
 }
