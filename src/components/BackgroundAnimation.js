@@ -1,12 +1,14 @@
 import { FlatList, StyleSheet, Image, View } from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import Animated, {useSharedValue, useAnimatedStyle, withTiming, withRepeat, withSequence, Easing, ReduceMotion } from 'react-native-reanimated';
 
 const slide1 = [
   { id: 1, image: require('../../assets/images/cover/fifa23.png') },
   { id: 2, image: require('../../assets/images/cover/need-for-speed.png') },
   { id: 3, image: require('../../assets/images/cover/gotham-knights.png') },
   { id: 4, image: require('../../assets/images/cover/red-dead-redemption.png') },
+  { id: 5, image: require('../../assets/images/cover/fifa23.png') },
 ];
 
 const slide2 = [
@@ -33,15 +35,32 @@ const renderItem = ({ item }) => {
 };
 
 const BackgroundAnimation = () => {
+  const translateY = useSharedValue(0);
+
+
+  const animatedStyle = useAnimatedStyle(()=> ({
+    transform: [{translateY:  translateY.value}]
+  }))
+
+  useEffect(() => {
+    translateY.value = withRepeat(
+      withSequence(
+        withTiming(100, { duration: 3000, easing: Easing.bezier(0.34, -0.65, 0.53, 1.42),reduceMotion: ReduceMotion.System, }), 
+        withTiming(-100, { duration: 3000, easing: Easing.bezier(0.34, -0.65, 0.53, 1.42),reduceMotion: ReduceMotion.System, })
+      ),
+      -1
+    );
+  }, [translateY]);
   return (
     <View style={styles.container}>
       <View style={styles.column}>
-        <FlatList
+        <Animated.FlatList
+          style={animatedStyle}
           data={slide1}
           renderItem={renderItem}
           keyExtractor={(item) => item.id.toString()}
           showsVerticalScrollIndicator={false}
-          scrollEnabled={true} // Permet le scroll vertical
+          scrollEnabled={true} 
         />
       </View>
 
@@ -78,6 +97,7 @@ const styles = StyleSheet.create({
     width: wp('100%'),
     height: hp('100%'),
     backgroundColor: 'black',
+    zIndex: 0
   },
   column: {
     width: wp('30%'),
@@ -88,6 +108,6 @@ const styles = StyleSheet.create({
   },
   image: {
     // width: wp('28%'),
-    // height: hp('15%'), // Redimensionne les images pour s'adapter sans déformer
+    // height: hp('15%'), 
   },
 });

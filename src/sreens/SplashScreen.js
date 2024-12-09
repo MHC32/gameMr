@@ -11,26 +11,26 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import { scale } from 'react-native-size-matters';
 import useCustomFonts from '../../utils/fonts';
 
-const SplashScreen = ({navigation}) => {
+const SplashScreen = ({ navigation }) => {
   const width = Dimensions.get('window').width;
   const { loaded } = useCustomFonts();
   const translateY = useSharedValue(100);
   const circleTranslateX = useSharedValue(0);
   const circleScale = useSharedValue(1);
-  const circleOpacity = useSharedValue(1); 
-  
+  const circleOpacity = useSharedValue(1);
+
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ translateY: translateY.value }],
   }));
-  
+
   const animatedCircle = useAnimatedStyle(() => ({
     opacity: circleOpacity.value,
     transform: [
       { translateX: circleTranslateX.value },
-      { scale: circleScale.value }, 
+      { scale: circleScale.value },
     ],
   }));
-  
+
   useEffect(() => {
     if (loaded) {
       translateY.value = withTiming(0, { duration: 500 });
@@ -41,20 +41,20 @@ const SplashScreen = ({navigation}) => {
         withTiming(-width / 3, { duration: 500, easing: Easing.bezier(0.39, 0.49, 0.25, 0.42), }),
         withTiming(width / 3, { duration: 500, easing: Easing.bezier(0.39, 0.49, 0.25, 0.42), })
       );
-  
- 
+
+
       circleScale.value = withSequence(
-        withTiming(1, { duration: 500, easing: Easing.bezier(0.39, 0.49, 0.25, 0.42), }), 
-        withTiming(1.2, { duration: 500, easing: Easing.bezier(0.39, 0.49, 0.25, 0.42), }), 
+        withTiming(1, { duration: 500, easing: Easing.bezier(0.39, 0.49, 0.25, 0.42), }),
+        withTiming(1.2, { duration: 500, easing: Easing.bezier(0.39, 0.49, 0.25, 0.42), }),
         withTiming(1.2, { duration: 500, easing: Easing.bezier(0.39, 0.49, 0.25, 0.42), }),
         withTiming(0.5, { duration: 500, easing: Easing.bezier(0.39, 0.49, 0.25, 0.42), }),
       );
 
       circleOpacity.value = withSequence(
-        withTiming(1, { duration: 300 }), 
         withTiming(1, { duration: 300 }),
-        withTiming(0.8, { duration: 1200 }), 
-        withTiming(0, { duration: 100 }) 
+        withTiming(1, { duration: 300 }),
+        withTiming(0.8, { duration: 1200 }),
+        withTiming(0, { duration: 100 })
       );
     }
   }, [loaded]);
@@ -75,8 +75,8 @@ const SplashScreen = ({navigation}) => {
           <Animated.View style={[styles.circle, animatedCircle]} />
         </Animated.View>
 
-        <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('Onboarding')}>
-          <Image source={require("../../assets/icons/Icon.png")}style={styles.icon} />
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Onboarding')}>
+          <Image source={require("../../assets/icons/Icon.png")} style={styles.icon} />
         </TouchableOpacity>
 
         <Animated.Image source={require('../../assets/unsplash_49hqFrGtL9Y.png')} style={[animatedStyle]} />
@@ -86,11 +86,11 @@ const SplashScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  container: { 
+  container: {
     flex: 1,
     backgroundColor: "black",
     alignItems: "center",
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
   },
   containerEnd: {
     width: wp('100%'),
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'red'
   },
   image: {
-    
+
   }
 });
 
