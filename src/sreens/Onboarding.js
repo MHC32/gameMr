@@ -34,7 +34,7 @@ export default function CustomSlider() {
 
   const renderItemSlide1 = ({ item, index }) => {
     const inputRange = [(index - 1) * wp('100%'), index * wp('100%'), (index + 1) * wp('100%')];
-    
+
     const translateX = scrollX.interpolate({
       inputRange,
       outputRange: [-wp('100%'), 0, wp('100%')],
@@ -77,7 +77,7 @@ export default function CustomSlider() {
     </View>
   );
 
-  
+
   const backgroundColor = activeIndex === 1 ? 'black' : 'black';
 
   return (
