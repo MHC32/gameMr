@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import HomeStack from './src/navigation/HomeStack';
+import OnBoardingStack from './src/navigation/OnBoardingStack'; // Correction du nom
 
+const RootStack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
