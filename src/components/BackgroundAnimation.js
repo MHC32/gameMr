@@ -1,7 +1,7 @@
 import { FlatList, StyleSheet, Image, View } from 'react-native';
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import Animated, {useSharedValue, useAnimatedStyle, withTiming, withRepeat, withSequence, Easing, ReduceMotion } from 'react-native-reanimated';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming, withRepeat, withSequence, Easing, ReduceMotion } from 'react-native-reanimated';
 
 const slide1 = [
   { id: 1, image: require('../../assets/images/cover/fifa23.png') },
@@ -38,15 +38,15 @@ const BackgroundAnimation = () => {
   const translateY = useSharedValue(0);
 
 
-  const animatedStyle = useAnimatedStyle(()=> ({
-    transform: [{translateY:  translateY.value}]
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: translateY.value }]
   }))
 
   useEffect(() => {
     translateY.value = withRepeat(
       withSequence(
-        withTiming(100, { duration: 3000, easing: Easing.bezier(0.34, -0.65, 0.53, 1.42),reduceMotion: ReduceMotion.System, }), 
-        withTiming(-100, { duration: 3000, easing: Easing.bezier(0.34, -0.65, 0.53, 1.42),reduceMotion: ReduceMotion.System, })
+        withTiming(100, { duration: 3000, easing: Easing.bezier(0.34, -0.65, 0.53, 1.42), reduceMotion: ReduceMotion.System, }),
+        withTiming(-100, { duration: 3000, easing: Easing.bezier(0.34, -0.65, 0.53, 1.42), reduceMotion: ReduceMotion.System, })
       ),
       -1
     );
@@ -60,7 +60,7 @@ const BackgroundAnimation = () => {
           renderItem={renderItem}
           keyExtractor={(item) => item.id.toString()}
           showsVerticalScrollIndicator={false}
-          scrollEnabled={true} 
+          scrollEnabled={true}
         />
       </View>
 
