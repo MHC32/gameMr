@@ -15,7 +15,7 @@ GameMr is a mobile application designed to provide a seamless shopping experienc
 - Expo CLI
 - Redux (for state management)
 - Firebase (backend services)
-- TailwindCSS (for styling)
+- Tamagui UI (for styling)
 
 ## Installation
 
@@ -76,3 +76,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 
 Feel free to reach out if you have any questions or feedback. Let's build something amazing together!
+
+
+
