@@ -27,7 +27,7 @@ export default function useCustomFonts() {
     'UrbanistSemiBoldItalic': require('../assets/fonts/Urbanist-SemiBoldItalic.ttf'),
     'UrbanistThin': require('../assets/fonts/Urbanist-Thin.ttf'),
     'UrbanistThinItalic': require('../assets/fonts/Urbanist-ThinItalic.ttf')
-    
+
 
   });
 

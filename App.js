@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -8,11 +9,8 @@ const RootStack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <RootStack.Navigator screenOptions={{headerShown: false}}>
-        <RootStack.Screen name="HomeStack" component={HomeStack} />
-        <RootStack.Screen name="OnBoardingStack" component={OnBoardingStack} />
-      </RootStack.Navigator>
-      <StatusBar style="light" backgroundColor="black" />
+      <HomeStack />
+      <StatusBar style="light" backgroundColor='black' />
     </NavigationContainer>
   );
 }
